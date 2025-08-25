@@ -1,0 +1,44 @@
+name: Build pokamon Plugin
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK 8
+      uses: actions/setup-java@v4
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+        
+    - name: Build with Maven
+      run: mvn clean package
+      
+    - name: Upload JAR artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: pokamon-Plugin
+        path: target/pokamon-2.9.6.jar
+        retention-days: 30
+        
+    - name: Show download instructions
+      run: |
+        echo "🎉 編譯成功！"
+        echo "📦 JAR 檔案已上傳為 artifact"
+        echo "📥 下載方式："
+        echo "   1. 點擊 Actions 標籤"
+        echo "   2. 選擇最新的工作流程執行"
+        echo "   3. 在 Artifacts 區塊下載 pokamon-Plugin"
+        echo "   4. 將 JAR 檔案放入伺服器的 plugins 資料夾"
+        echo "   5. 重啟伺服器"
