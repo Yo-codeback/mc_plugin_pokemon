@@ -85,9 +85,9 @@ public class PokemonCommand implements CommandExecutor {
     
     private void sendHelpMessage(Player player) {
         player.sendMessage("§6=== 寶可夢插件指令 ===");
-        player.sendMessage("§e/e mode §7- 切換遊戲模式");
-        player.sendMessage("§e/e bag §7- 開啟捕捉背包");
-        player.sendMessage("§e/e catch §7- 使用捕捉球");
+        player.sendMessage("§e/e mode §7- 切換抓寶模式");
+        player.sendMessage("§e/e bag §7- 開啟捕捉背包 (GUI)");
+        player.sendMessage("§e/e catch §7- 使用捕捉球 (丟出)");
         if (player.hasPermission("pokemon.get")) {
             player.sendMessage("§e/e get <物品> §7- 獲取物品");
         }
