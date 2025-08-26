@@ -1,4 +1,4 @@
-name: Build pokamon Plugin
+name: Build Pokemon Plugin
 
 on:
   push:
@@ -28,8 +28,8 @@ jobs:
     - name: Upload JAR artifact
       uses: actions/upload-artifact@v4
       with:
-        name: pokamon-Plugin
-        path: target/pokamon-2.9.6.jar
+        name: pokemon-plugin
+        path: target/*.jar
         retention-days: 30
         
     - name: Show download instructions
@@ -39,6 +39,6 @@ jobs:
         echo "📥 下載方式："
         echo "   1. 點擊 Actions 標籤"
         echo "   2. 選擇最新的工作流程執行"
-        echo "   3. 在 Artifacts 區塊下載 pokamon-Plugin"
+        echo "   3. 在 Artifacts 區塊下載 pokemon-plugin"
         echo "   4. 將 JAR 檔案放入伺服器的 plugins 資料夾"
         echo "   5. 重啟伺服器"
