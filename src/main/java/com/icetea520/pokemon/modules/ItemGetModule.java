@@ -21,7 +21,7 @@ public class ItemGetModule {
     
     public void execute(Player player, String[] args) {
         if (args.length < 2) {
-            player.sendMessage("§c用法: /pokemon get <物品名稱> [數量]");
+            player.sendMessage("§c用法: /e get <物品名稱> [數量]");
             player.sendMessage("§e可用物品: pokeball (捕捉球)");
             return;
         }

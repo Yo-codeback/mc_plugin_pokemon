@@ -21,7 +21,8 @@ public class PokemonPlugin extends JavaPlugin {
         this.pokeballManager = new PokeballManager(this);
         
         // 註冊指令
-        getCommand("pokemon").setExecutor(new PokemonCommand(this));
+        getCommand("e").setExecutor(new PokemonCommand(this));
+        getCommand("sc").setExecutor(new PokemonCommand(this));
         
         // 註冊監聽器
         getServer().getPluginManager().registerEvents(new PokeballListener(this), this);

@@ -6,10 +6,14 @@ author: IceTea_520
 description: Minecraft 寶可夢插件
 
 commands:
-  pokemon:
-    description: 寶可夢插件主指令
-    usage: /pokemon <子指令>
-    aliases: [pk, pokemon]
+  e:
+    description: 寶可夢插件主指令 (簡短版)
+    usage: /e <子指令>
+    aliases: [pokemon, pk]
+  sc:
+    description: 寶可夢插件主指令 (簡短版)
+    usage: /sc <子指令>
+    aliases: [pokemon, pk]
 
 permissions:
   pokemon.*:

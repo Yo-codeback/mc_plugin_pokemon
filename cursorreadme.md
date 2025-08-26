@@ -24,22 +24,22 @@
 
 ## 核心功能
 
-### 主要指令: `/pokemon`
+### 主要指令: `/e` 和 `/sc`
 
 #### 1. 模式切換 (Mode Switch)
-- **指令**: `/pokemon mode`
+- **指令**: `/e mode` 或 `/sc mode`
 - **功能**: 將玩家從生存模式切換為冒險模式
 - **權限**: 所有玩家可使用
 - **模組**: `ModeSwitchModule`
 
 #### 2. 等級界面 (Level Interface) ⏳
-- **指令**: `/pokemon level`
+- **指令**: `/e level` 或 `/sc level`
 - **功能**: 顯示玩家等級和經驗值界面
 - **狀態**: 暫時不做，功能規劃中
 - **模組**: `LevelModule`
 
 #### 3. 捕捉背包 (Catch Bag)
-- **指令**: `/pokemon bag`
+- **指令**: `/e bag` 或 `/sc bag`
 - **功能**: 
   - 顯示捕捉到的寶可夢
   - 預設容量：100格
@@ -49,7 +49,7 @@
 - **模組**: `CatchBagModule`
 
 #### 4. 捕捉球 (Pokeball)
-- **指令**: `/pokemon catch`
+- **指令**: `/e catch` 或 `/sc catch`
 - **功能**: 
   - 使用捕捉球捕捉生物
   - 捕捉成功後自動存入捕捉背包
@@ -58,31 +58,31 @@
 - **模組**: `PokeballModule`
 
 #### 5. 物資補給 (Supply) ⏳
-- **指令**: `/pokemon supply`
+- **指令**: `/e supply` 或 `/sc supply`
 - **功能**: 提供各種補給品
 - **狀態**: 暫時不做，功能規劃中
 - **模組**: `SupplyModule`
 
 #### 6. 對戰系統 (Battle) ⏳
-- **指令**: `/pokemon battle`
+- **指令**: `/e battle` 或 `/sc battle`
 - **功能**: 玩家間的寶可夢對戰
 - **狀態**: 暫時不做，功能規劃中
 - **模組**: `BattleModule`
 
 #### 7. 團體戰 (Raid Battle) ⏳
-- **指令**: `/pokemon raid`
+- **指令**: `/e raid` 或 `/sc raid`
 - **功能**: 多人協作對戰系統
 - **狀態**: 暫時不做，功能規劃中
 - **模組**: `RaidModule`
 
 #### 8. 防禦塔 (Defense Tower) ⏳
-- **指令**: `/pokemon tower`
+- **指令**: `/e tower` 或 `/sc tower`
 - **功能**: 防禦塔建造和管理
 - **狀態**: 暫時不做，功能規劃中
 - **模組**: `TowerModule`
 
 #### 9. 物品獲取 (Get Items)
-- **指令**: `/pokemon get [物品名稱]`
+- **指令**: `/e get [物品名稱]` 或 `/sc get [物品名稱]`
 - **功能**: 
   - 獲取各種遊戲物品
   - 目前支援：捕捉球
@@ -121,7 +121,7 @@
 ## 技術需求
 
 ### 開發環境
-- Java 8+
+- Java 17+
 - Spigot/Paper API
 - Maven/Gradle
 - GitHub Actions

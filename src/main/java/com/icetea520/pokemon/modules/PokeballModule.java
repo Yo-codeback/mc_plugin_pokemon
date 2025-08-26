@@ -13,6 +13,6 @@ public class PokeballModule {
     
     public void execute(Player player, String[] args) {
         player.sendMessage("§e請手持捕捉球，然後右鍵點擊生物來捕捉！");
-        player.sendMessage("§7提示: 使用 /pokemon get pokeball 來獲取捕捉球");
+        player.sendMessage("§7提示: 使用 /e get pokeball 來獲取捕捉球");
     }
 }
