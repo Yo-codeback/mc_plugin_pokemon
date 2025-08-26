@@ -50,7 +50,7 @@ public class PokemonPlugin extends JavaPlugin {
     
     @Override
     public void onDisable() {
-        getLogger().info("§c寶可夢插件已停用！");5
+        getLogger().info("§c寶可夢插件已停用！");
     }
     
     public static PokemonPlugin getInstance() {
