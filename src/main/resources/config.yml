@@ -1,0 +1,63 @@
+# Minecraft 寶可夢插件配置文件
+# 開發者: IceTea_520
+
+# 插件基本設定
+settings:
+  # 是否啟用除錯模式
+  debug: false
+  # 預設語言
+  language: "zh_TW"
+  # 是否啟用自動更新檢查
+  check-updates: true
+
+# 捕捉背包設定
+catch-bag:
+  # 預設背包容量
+  default-size: 100
+  # 是否允許擴展背包
+  allow-expansion: true
+  # 最大背包容量
+  max-size: 1000
+
+# 捕捉球設定
+pokeball:
+  # 捕捉成功率 (0.0 - 1.0)
+  catch-rate: 0.8
+  # 是否消耗捕捉球
+  consume-on-use: true
+  # 捕捉球材料
+  material: "EGG"
+  # 捕捉球顯示名稱
+  display-name: "§c§l捕捉球"
+  # 捕捉球描述
+  lore:
+    - "§7右鍵點擊生物來捕捉"
+    - "§7捕捉成功後會存入背包"
+    - "§e§l寶可夢插件"
+
+# 權限設定
+permissions:
+  # 特殊玩家權限
+  special-players:
+    - "IceTea_520"
+  # 管理員權限
+  admin-permissions:
+    - "pokemon.*"
+    - "pokemon.get"
+
+# 訊息設定
+messages:
+  prefix: "§6[寶可夢] "
+  success: "§a"
+  error: "§c"
+  info: "§e"
+  help: "§7"
+
+# 資料儲存設定
+storage:
+  # 儲存類型: "memory", "file", "database"
+  type: "memory"
+  # 檔案儲存路徑 (如果使用檔案儲存)
+  file-path: "plugins/PokemonPlugin/data/"
+  # 自動儲存間隔 (分鐘)
+  auto-save-interval: 5

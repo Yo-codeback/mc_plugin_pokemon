@@ -14,24 +14,32 @@ public class PokemonPlugin extends JavaPlugin {
     
     @Override
     public void onEnable() {
-        instance = this;
-        
-        // 初始化管理器
-        this.catchBagManager = new CatchBagManager(this);
-        this.pokeballManager = new PokeballManager(this);
-        
-        // 註冊指令
-        getCommand("e").setExecutor(new PokemonCommand(this));
-        getCommand("sc").setExecutor(new PokemonCommand(this));
-        
-        // 註冊監聽器
-        getServer().getPluginManager().registerEvents(new PokeballListener(this), this);
-        
-        // 載入配置
-        saveDefaultConfig();
-        
-        getLogger().info("§a寶可夢插件已啟用！");
-        getLogger().info("§e開發者: IceTea_520");
+        try {
+            instance = this;
+            
+            // 載入配置
+            saveDefaultConfig();
+            reloadConfig();
+            
+            // 初始化管理器
+            this.catchBagManager = new CatchBagManager(this);
+            this.pokeballManager = new PokeballManager(this);
+            
+            // 註冊指令
+            getCommand("e").setExecutor(new PokemonCommand(this));
+            getCommand("sc").setExecutor(new PokemonCommand(this));
+            
+            // 註冊監聽器
+            getServer().getPluginManager().registerEvents(new PokeballListener(this), this);
+            
+            getLogger().info("§a寶可夢插件已啟用！");
+            getLogger().info("§e版本: " + getDescription().getVersion());
+            
+        } catch (Exception e) {
+            getLogger().severe("§c插件啟用時發生錯誤: " + e.getMessage());
+            e.printStackTrace();
+            getServer().getPluginManager().disablePlugin(this);
+        }
     }
     
     @Override
