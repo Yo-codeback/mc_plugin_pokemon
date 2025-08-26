@@ -1,0 +1,52 @@
+package com.icetea520.pokemon;
+
+import com.icetea520.pokemon.commands.PokemonCommand;
+import com.icetea520.pokemon.listeners.PokeballListener;
+import com.icetea520.pokemon.managers.CatchBagManager;
+import com.icetea520.pokemon.managers.PokeballManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class PokemonPlugin extends JavaPlugin {
+    
+    private static PokemonPlugin instance;
+    private CatchBagManager catchBagManager;
+    private PokeballManager pokeballManager;
+    
+    @Override
+    public void onEnable() {
+        instance = this;
+        
+        // 初始化管理器
+        this.catchBagManager = new CatchBagManager(this);
+        this.pokeballManager = new PokeballManager(this);
+        
+        // 註冊指令
+        getCommand("pokemon").setExecutor(new PokemonCommand(this));
+        
+        // 註冊監聽器
+        getServer().getPluginManager().registerEvents(new PokeballListener(this), this);
+        
+        // 載入配置
+        saveDefaultConfig();
+        
+        getLogger().info("§a寶可夢插件已啟用！");
+        getLogger().info("§e開發者: IceTea_520");
+    }
+    
+    @Override
+    public void onDisable() {
+        getLogger().info("§c寶可夢插件已停用！");
+    }
+    
+    public static PokemonPlugin getInstance() {
+        return instance;
+    }
+    
+    public CatchBagManager getCatchBagManager() {
+        return catchBagManager;
+    }
+    
+    public PokeballManager getPokeballManager() {
+        return pokeballManager;
+    }
+}
