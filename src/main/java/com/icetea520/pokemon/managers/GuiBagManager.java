@@ -35,6 +35,20 @@ public class GuiBagManager {
      */
     public void openBag(Player player) {
         List<CaughtPokemon> bag = catchBagManager.getPlayerBag(player);
+        openBagWithData(player, bag, "§6捕捉背包", false);
+    }
+    
+    /**
+     * 開啟其他玩家的捕捉背包 GUI (管理員模式)
+     */
+    public void openOtherPlayerBag(Player admin, List<CaughtPokemon> targetBag, String targetPlayerName) {
+        openBagWithData(admin, targetBag, "§6" + targetPlayerName + " 的背包", true);
+    }
+    
+    /**
+     * 開啟背包 GUI 的通用方法
+     */
+    private void openBagWithData(Player player, List<CaughtPokemon> bag, String title, boolean isAdminMode) {
         int currentPage = playerPages.getOrDefault(player.getUniqueId(), 0);
         
         // 計算總頁數
@@ -47,8 +61,12 @@ public class GuiBagManager {
         }
         
         // 創建 GUI
-        Inventory gui = Bukkit.createInventory(null, TOTAL_SLOTS, 
-            "§6捕捉背包 §7(" + (currentPage + 1) + "/" + totalPages + ")");
+        String fullTitle = title + " §7(" + (currentPage + 1) + "/" + totalPages + ")";
+        if (isAdminMode) {
+            fullTitle += " §c[管理員模式]";
+        }
+        
+        Inventory gui = Bukkit.createInventory(null, TOTAL_SLOTS, fullTitle);
         
         // 填充物品
         fillItems(gui, bag, currentPage);

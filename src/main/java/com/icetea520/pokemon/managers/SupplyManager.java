@@ -24,6 +24,9 @@ public class SupplyManager {
         this.plugin = plugin;
         this.supplyPoints = new HashMap<>();
         this.supplyTasks = new HashMap<>();
+        
+        // 載入物資生成點資料
+        loadSupplyData();
     }
     
     /**
@@ -44,6 +47,9 @@ public class SupplyManager {
         // 啟動定時任務
         startSupplyTask(supplyPoint);
         
+        // 立即儲存到檔案
+        saveSupplyData();
+        
         return true;
     }
     
@@ -62,6 +68,9 @@ public class SupplyManager {
         
         // 移除生成點
         supplyPoints.remove(key);
+        
+        // 立即儲存到檔案
+        saveSupplyData();
         
         return true;
     }
@@ -86,6 +95,9 @@ public class SupplyManager {
         
         // 啟動新任務
         startSupplyTask(supplyPoint);
+        
+        // 立即儲存到檔案
+        saveSupplyData();
         
         return true;
     }
@@ -214,6 +226,32 @@ public class SupplyManager {
             task.cancel();
         }
         supplyTasks.clear();
+    }
+    
+    /**
+     * 載入物資生成點資料
+     */
+    private void loadSupplyData() {
+        if (plugin.getDataManager() != null) {
+            Map<String, SupplyPoint> loadedData = plugin.getDataManager().loadSupplyData();
+            supplyPoints.putAll(loadedData);
+            
+            // 重新啟動所有定時任務
+            for (SupplyPoint supplyPoint : supplyPoints.values()) {
+                startSupplyTask(supplyPoint);
+            }
+            
+            plugin.getLogger().info("已載入 " + loadedData.size() + " 個物資生成點");
+        }
+    }
+    
+    /**
+     * 儲存物資生成點資料
+     */
+    private void saveSupplyData() {
+        if (plugin.getDataManager() != null) {
+            plugin.getDataManager().saveSupplyData(supplyPoints);
+        }
     }
     
     /**

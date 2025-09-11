@@ -14,6 +14,7 @@ public class PokemonPlugin extends JavaPlugin {
     private GuiBagManager guiBagManager;
     private LevelManager levelManager;
     private SupplyManager supplyManager;
+    private DataManager dataManager;
     
     @Override
     public void onEnable() {
@@ -25,6 +26,7 @@ public class PokemonPlugin extends JavaPlugin {
             reloadConfig();
             
             // 初始化管理器
+            this.dataManager = new DataManager(this);
             this.catchBagManager = new CatchBagManager(this);
             this.pokeballManager = new PokeballManager(this);
             this.gameModeManager = new GameModeManager(this);
@@ -54,6 +56,11 @@ public class PokemonPlugin extends JavaPlugin {
     
     @Override
     public void onDisable() {
+        // 儲存所有玩家資料
+        if (catchBagManager != null) {
+            catchBagManager.saveAllPlayerData();
+        }
+        
         // 停止所有物資生成任務
         if (supplyManager != null) {
             supplyManager.stopAllTasks();
@@ -88,5 +95,9 @@ public class PokemonPlugin extends JavaPlugin {
     
     public SupplyManager getSupplyManager() {
         return supplyManager;
+    }
+    
+    public DataManager getDataManager() {
+        return dataManager;
     }
 }

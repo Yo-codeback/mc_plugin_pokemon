@@ -103,9 +103,17 @@ messages:
 
 # 資料儲存設定
 storage:
-  # 儲存類型: "memory", "file", "database"
-  type: "memory"
-  # 檔案儲存路徑 (如果使用檔案儲存)
+  # 儲存類型: "file" (目前僅支援檔案儲存)
+  type: "file"
+  # 檔案儲存路徑
   file-path: "plugins/PokemonPlugin/data/"
-  # 自動儲存間隔 (分鐘)
-  auto-save-interval: 5
+  # 自動儲存間隔 (分鐘) - 目前為即時儲存
+  auto-save-interval: 0
+  # 是否啟用即時儲存
+  enable-instant-save: true
+  # 資料檔案設定
+  data-files:
+    # 玩家資料檔案
+    players: "players.yml"
+    # 物資生成點檔案
+    supply-points: "supply_points.yml"
