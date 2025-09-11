@@ -1,9 +1,13 @@
 package com.icetea520.pokemon.modules;
 
 import com.icetea520.pokemon.PokemonPlugin;
+import com.icetea520.pokemon.managers.CatchBagManager;
 import com.icetea520.pokemon.managers.GameModeManager;
 import com.icetea520.pokemon.managers.GuiBagManager;
 import org.bukkit.entity.Player;
+
+import java.util.List;
+import java.util.UUID;
 
 public class CatchBagModule {
     
