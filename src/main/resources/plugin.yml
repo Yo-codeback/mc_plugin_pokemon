@@ -31,6 +31,9 @@ permissions:
   pokemon.level:
     description: 允許查看等級資訊
     default: true
+  pokemon.supply:
+    description: 允許管理物資補給 (僅 OP)
+    default: op
   pokemon.get:
     description: 允許獲取物品 (僅 OP)
     default: op

@@ -13,6 +13,7 @@ public class PokemonPlugin extends JavaPlugin {
     private GameModeManager gameModeManager;
     private GuiBagManager guiBagManager;
     private LevelManager levelManager;
+    private SupplyManager supplyManager;
     
     @Override
     public void onEnable() {
@@ -29,6 +30,7 @@ public class PokemonPlugin extends JavaPlugin {
             this.gameModeManager = new GameModeManager(this);
             this.guiBagManager = new GuiBagManager(this);
             this.levelManager = new LevelManager(this);
+            this.supplyManager = new SupplyManager(this);
             
             // 註冊指令
             getCommand("e").setExecutor(new PokemonCommand(this));
@@ -52,6 +54,11 @@ public class PokemonPlugin extends JavaPlugin {
     
     @Override
     public void onDisable() {
+        // 停止所有物資生成任務
+        if (supplyManager != null) {
+            supplyManager.stopAllTasks();
+        }
+        
         getLogger().info("§c寶可夢插件已停用！");
     }
     
@@ -77,5 +84,9 @@ public class PokemonPlugin extends JavaPlugin {
     
     public LevelManager getLevelManager() {
         return levelManager;
+    }
+    
+    public SupplyManager getSupplyManager() {
+        return supplyManager;
     }
 }

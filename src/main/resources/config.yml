@@ -61,6 +61,28 @@ level-system:
       name: "所有功能"
       description: "解鎖所有功能"
 
+# 物資補給設定
+supply-system:
+  # 預設生成間隔 (秒)
+  default-interval: 30
+  # 最小生成間隔 (秒)
+  min-interval: 5
+  # 最大生成間隔 (秒)
+  max-interval: 3600
+  # 是否啟用物資生成
+  enable-supply: true
+  # 物資生成範圍 (格)
+  supply-range: 50
+  # 物資物品設定
+  supply-items:
+    - type: "pokeball"
+      amount: 1
+      weight: 100
+  # 是否顯示生成訊息
+  show-messages: true
+  # 是否啟用物資名稱顯示
+  show-item-names: true
+
 # 權限設定
 permissions:
   # 特殊玩家權限
