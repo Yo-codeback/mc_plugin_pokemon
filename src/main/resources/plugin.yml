@@ -28,6 +28,9 @@ permissions:
   pokemon.catch:
     description: 允許使用捕捉球
     default: true
+  pokemon.level:
+    description: 允許查看等級資訊
+    default: true
   pokemon.get:
     description: 允許獲取物品 (僅 OP)
     default: op

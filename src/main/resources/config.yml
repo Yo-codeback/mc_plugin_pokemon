@@ -35,6 +35,32 @@ pokeball:
     - "§7捕捉成功後會存入背包"
     - "§e§l寶可夢插件"
 
+# 等級系統設定
+level-system:
+  # 最大等級
+  max-level: 100
+  # 是否啟用升級特效
+  enable-level-up-effects: true
+  # 是否啟用等級獎勵
+  enable-level-rewards: true
+  # 等級獎勵設定
+  level-rewards:
+    10:
+      name: "高級捕捉球"
+      description: "解鎖高級捕捉球"
+    25:
+      name: "超級捕捉球"
+      description: "解鎖超級捕捉球"
+    50:
+      name: "大師捕捉球"
+      description: "解鎖大師捕捉球"
+    75:
+      name: "傳說捕捉球"
+      description: "解鎖傳說捕捉球"
+    100:
+      name: "所有功能"
+      description: "解鎖所有功能"
+
 # 權限設定
 permissions:
   # 特殊玩家權限

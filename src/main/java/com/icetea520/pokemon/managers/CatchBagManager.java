@@ -33,6 +33,12 @@ public class CatchBagManager {
         
         bag.add(pokemon);
         playerBags.put(playerId, bag);
+        
+        // 觸發等級更新
+        if (plugin.getLevelManager() != null) {
+            plugin.getLevelManager().updatePlayerLevel(player);
+        }
+        
         return true;
     }
     

@@ -12,6 +12,7 @@ public class PokemonPlugin extends JavaPlugin {
     private PokeballManager pokeballManager;
     private GameModeManager gameModeManager;
     private GuiBagManager guiBagManager;
+    private LevelManager levelManager;
     
     @Override
     public void onEnable() {
@@ -27,6 +28,7 @@ public class PokemonPlugin extends JavaPlugin {
             this.pokeballManager = new PokeballManager(this);
             this.gameModeManager = new GameModeManager(this);
             this.guiBagManager = new GuiBagManager(this);
+            this.levelManager = new LevelManager(this);
             
             // 註冊指令
             getCommand("e").setExecutor(new PokemonCommand(this));
@@ -71,5 +73,9 @@ public class PokemonPlugin extends JavaPlugin {
     
     public GuiBagManager getGuiBagManager() {
         return guiBagManager;
+    }
+    
+    public LevelManager getLevelManager() {
+        return levelManager;
     }
 }
